@@ -12,58 +12,58 @@ import {
 import { tableInfo, indexList } from "../src/queries/table-info";
 
 const CREATE_MOVIES_TABLE = `create table ${MOVIES}(
-id integer not null primary key,
-imdb_id text not null,
-popularity real not null,
-budget real not null,
-budget_adjusted real not null,
-revenue real not null,
-revenue_adjusted real not null,
-original_title text not null,
-homepage text,
-tagline text,
-overview text not null,
-runtime integer not null,
-release_date text not null
-)`;          
+  id integer not null primary key,
+  imdb_id text not null,
+  popularity real not null,
+  budget real not null,
+  budget_adjusted real not null,
+  revenue real not null,
+  revenue_adjusted real not null,
+  original_title text not null,
+  homepage text,
+  tagline text,
+  overview text not null,
+  runtime integer not null,
+  release_date text not null
+  )`;          
 
 const CREATE_MOVIE_RATINGS_TABLE = `create table ${MOVIE_RATINGS}(
-user_id integer not null,
-movie_id integer not null,
-rating real not null,
-time_created text not null,
-primary key (user_id, movie_id)
-)`;
+  user_id integer not null,
+  movie_id integer not null,
+  rating real not null,
+  time_created text not null,
+  primary key (user_id, movie_id)
+  )`;
 
 const CREATE_ACTORS_TABLE = `create table ${ACTORS}(
-id integer not null primary key,
-full_name text not null
-)`;
+  id integer not null primary key,
+  full_name text not null
+  )`;
 
 
 const CREATE_KEYWORDS_TABLE = `create table ${KEYWORDS}(
-id integer not null primary key,
-keyword text not null
-)`;
+  id integer not null primary key,
+  keyword text not null
+  )`;
 
 const CREATE_DIRECTORS_TABLE = `create table ${DIRECTORS}(
-id integer not null primary key,
-full_name text not null
-)`;
+  id integer not null primary key,
+  full_name text not null
+  )`;
 
 const CREATE_GENRES_TABLE = `create table ${GENRES}(
-id integer not null primary key,
-genre text not null
-)`;
+  id integer not null primary key,
+  genre text not null
+  )`;
 
 const CREATE_PRODUCTION_COMPANIES_TABLE = `create table ${PRODUCTION_COMPANIES} (
-id integer not null primary key,
-company_name text not null
-)`;
+  id integer not null primary key,
+  company_name text not null
+  )`;
 
 const CREATE_INDEX_MOVIES_RELEASE_DATE = `create index movies_release_date_idx ON ${MOVIES}(release_date)`;
 
-const CREATE_INDEX_MOVIE_RATINGS_TIME_CREATED = `create index movie_ratings_time_created_idx on ${MOVIE_RATINGS}(time_created)`;
+const CREATE_INDEX_MOVIE_RATINGS_TIME_CREATED = `create index movie_ratings_time_created_idx ON ${MOVIE_RATINGS}(time_created)`;
 
 const CREATE_UNIQUE_INDEX_MOVIES_IMDB_ID = `create unique index movies_imdb_id_unq_idx ON ${MOVIES}(imdb_id)`;
 
